@@ -1,6 +1,8 @@
-# React Hooks workshop challenges
+# React Hooks workshop challenge
 
-This directory contains challenges to practice using React Hooks.
+https://gelio.github.io/react-hooks-workshop/solution/
+
+This directory contains a challenge to practice using React Hooks.
 
 ## Installation
 
