@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 export default function Checkbox({
@@ -8,8 +8,9 @@ export default function Checkbox({
   onChange,
   disabled
 }) {
-  // TODO: use `useCallback` to avoid creating new event handler references
-  const onChangeHandler = event => onChange(event.target.checked);
+  const onChangeHandler = useCallback(event => onChange(event.target.checked), [
+    onChange
+  ]);
 
   return (
     <div>

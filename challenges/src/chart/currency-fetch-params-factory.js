@@ -1,3 +1,5 @@
+import formatDate from '../utils/format-date';
+
 /**
  * Creates the querystring for https://exchangeratesapi.io/ based on provided parameters
  *
@@ -17,11 +19,4 @@ export default function currencyFetchParamsFactory({
     `base=${baseCurrency}`,
     `symbols=${symbols}`
   ].join('&');
-}
-
-/**
- * @param {Date} date
- */
-function formatDate(date) {
-  return [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-');
 }
