@@ -4,43 +4,64 @@ import { FullscreenCode, Split, SplitRight } from 'mdx-deck/layouts'
 export { default as theme } from './theme'
 
 <Head>
-  <title>Presentation title</title>
+  <title>React Hooks</title>
 </Head>
 
-# Presentation title
+<img src="./static/jak-zyc-na-froncie.png" alt="Group's logo" width="900" />
 
-Author: XYZ
+# React Hooks
+
+Author: Grzegorz Rozdzialik
+
+https://github.com/Gelio/react-hooks-workshop
 
 ---
 
-export default SplitRight
+## Agenda
 
-## Task for today
+1. What are React Hooks?
+2. Kinds of hooks
+3. Rules of hooks
+4. Adding functionality (**class** vs **function** components)
+5. Code challenges
 
-Using a different layout
+---
 
-- List item 1
-- List item 2
+## What are React Hooks?
+
+- a way to add functionality to function components
+- a measure for easy code reuse between components
+- a new mental model for creating React components
+- a way of Facebook saying FU to class components 😄
+
+---
+
+## Rationale
+
+1. Sharing stateful logic between components is hard
+2. Classes are supposedly confusing to developers
 
 ```notes
-Presenter notes are also available
+1. One would have to use higher order components or render props
+
+    They have their own problems (i.e. introduce new components into the component tree,
+    problems with typing in Typescript)
+
+    Moreover copying and pasting code that uses component's state required dilligence
+    and copying code from multiple sources.
+
+2. Public/private members, methods vs properties, binding functions, knowing and remembering how
+    `this` works - it adds up.
+
+    There are some technical reasons for abandoning classes:
+    * not well minified
+    * components cannot be folded (with Prepack)
+    * verbose code
 ```
 
 ---
 
-## A regular slide
-
-```js
-const withSome = 'code'
-```
-
-```tsx
-interface AlsoTypescript {
-  a: number
-}
-
-const AndTSX = <div />
-```
+## Kinds of hooks
 
 ---
 
