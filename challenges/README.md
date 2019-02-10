@@ -21,15 +21,3 @@ npm start
 ```
 
 This command will build the app and open it in a new browser tab.
-
-## Testing
-
-Some challenges contain unit tests that fully test the correctness of your solution.
-
-Run:
-
-```sh
-npm run test
-```
-
-to run the tests in watch mode. Errors will be reported to the console after every edit.
