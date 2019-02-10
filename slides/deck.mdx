@@ -364,6 +364,82 @@ type StatelessComponent<P = {}> = FunctionComponent<P>
 
 ## Adding functionality (**class** vs **function** components)
 
+Starting with the following component
+
+```tsx
+function User({ id, name }) {
+  return <div>{name}</div>
+}
+```
+
+---
+
+#### Add fetching a number of user's stars (pre-hooks)
+
+1. Convert a component into a class component
+2. Add a piece of state for the request status and number of stars
+3. Initiate the request in `componentDidMount`
+4. (optional) cancel the request in `componentWillUnmount`
+
+---
+
+#### Add fetching a number of user's stars (with hooks)
+
+```tsx
+function User({ id, name }) {
+  const [stars, setStars] = useState()
+  useEffect(() => {
+    const cancelableRequest = fetchUserStars(id).then((fetchedStars) =>
+      setStars(fetchedStars),
+    )
+
+    return () => {
+      cancelableRequest.cancel()
+    }
+  }, [id])
+
+  return <div>{name}</div>
+}
+```
+
+```notes
+Let's come back to the class component implementation
+```
+
+---
+
+#### Add fetching a number of user's stars (pre-hooks)
+
+1. Convert a component into a class component
+2. Add a piece of state for the request status and number of stars
+3. Initiate the request in `componentDidMount`
+4. (optional) cancel the request in `componentWillUnmount`
+
+Spotted a bug?
+
+---
+
+#### Add fetching a number of user's stars (pre-hooks)
+
+1. Convert a component into a class component
+2. Add a piece of state for the request status and number of stars
+3. Initiate the request in `componentDidMount`
+4. (optional) cancel the request in `componentWillUnmount`
+
+What if `id` changes?
+
+The request for previous id is not cancelled and a new one is not issued.
+
+---
+
+#### Add fetching a number of user's stars (pre-hooks)
+
+1. Convert a component into a class component
+2. Add a piece of state for the request status and number of stars
+3. Initiate the request in `componentDidMount`
+4. (optional) cancel the request in `componentWillUnmount`
+5. **(optional) add cancelling and initialing requests in `componentDidUpdate`**
+
 ---
 
 ## Questions
