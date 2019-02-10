@@ -34,6 +34,8 @@ https://github.com/Gelio/react-hooks-workshop
 - a new mental model for creating React components
 - a way of Facebook saying FU to class components 😄
 
+Most importantly: they have already been released in `react@16.8.0` (on 2/6/2019)
+
 ---
 
 ## Rationale
@@ -62,6 +64,98 @@ https://github.com/Gelio/react-hooks-workshop
 ---
 
 ## Kinds of hooks
+
+1. `useState`
+2. `useEffect`
+3. `useContext`
+4. `useReducer`
+5. `useMemo`
+6. `useCallback`
+7. `useRef`
+8. ...
+
+---
+
+### `useState`
+
+A way to add state to a function component.
+
+```ts
+const [state, setState] = useState('default value')
+```
+
+```tsx
+function MyStatefulComponent(props) {
+  const [counter, setCounter] = useState(0)
+
+  return (
+    <>
+      <p>Current value: {counter}</p>
+      <button onClick={() => setCounter(value + 1)}>Increment</button>
+    </>
+  )
+}
+```
+
+---
+
+### `useState` continued
+
+Can be used multiple times for different pieces of state
+
+```ts
+function MyStatefulComponent(props) {
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [age, setAge] = useState(0)
+}
+```
+
+---
+
+### `useEffect`
+
+---
+
+### `useContext`
+
+---
+
+### `useReducer`
+
+---
+
+### `useMemo`, `useCallback`
+
+---
+
+### `useRef`
+
+---
+
+## Rules of hooks
+
+---
+
+### Fun fact about `@types/react`
+
+```ts
+type ComponentType<P = {}> = ComponentClass<P> | FunctionComponent<P>
+
+// ...
+
+/**
+ * @deprecated as of recent React versions, function components can no
+ * longer be considered 'stateless'. Please use `FunctionComponent` instead.
+ *
+ * @see [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+ */
+type StatelessComponent<P = {}> = FunctionComponent<P>
+```
+
+---
+
+## Adding functionality (**class** vs **function** components)
 
 ---
 
