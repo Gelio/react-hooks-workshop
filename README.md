@@ -3,7 +3,7 @@
 Learn the concept of React Hooks and get some practice in by completing
 [challenges](challenges/README.md).
 
-The slides with more information [are available here](TODO: add slides URL).
+The slides with more information [are available here](https://gelio.github.io/react-hooks-workshop/#0).
 
 If you would like to inspect how the slides were created, check out the `slides` directory.
 
