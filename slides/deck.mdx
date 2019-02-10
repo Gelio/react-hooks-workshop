@@ -376,10 +376,22 @@ function User({ id, name }) {
 
 #### Add fetching a number of user's stars (pre-hooks)
 
-1. Convert a component into a class component
-2. Add a piece of state for the request status and number of stars
-3. Initiate the request in `componentDidMount`
-4. (optional) cancel the request in `componentWillUnmount`
+<Components.ol>
+  <Appear>
+    <Components.li>Convert a component into a class component</Components.li>
+    <Components.li>
+      Add a piece of state for the request status and number of stars
+    </Components.li>
+    <Components.li>
+      Initiate the request in{' '}
+      <Components.inlineCode>componentDidMount</Components.inlineCode>
+    </Components.li>
+    <Components.li>
+      (optional) cancel the request in{' '}
+      <Components.inlineCode>componentWillUnmount</Components.inlineCode>
+    </Components.li>
+  </Appear>
+</Components.ol>
 
 ---
 
@@ -439,6 +451,17 @@ The request for previous id is not cancelled and a new one is not issued.
 3. Initiate the request in `componentDidMount`
 4. (optional) cancel the request in `componentWillUnmount`
 5. **(optional) add cancelling and initialing requests in `componentDidUpdate`**
+
+---
+
+## Coding time
+
+```sh
+git clone git@github.com:Gelio/react-hooks-workshop.git
+cd react-hooks-workshop/challenges
+npm install
+npm start
+```
 
 ---
 
