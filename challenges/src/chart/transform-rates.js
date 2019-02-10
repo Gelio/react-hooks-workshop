@@ -21,8 +21,15 @@
  * @param {object[]} rates
  */
 export default function transformRates(rates) {
-  return Object.keys(rates).map(date => ({
+  const ratesArray = Object.keys(rates).map(date => ({
     date,
     ...rates[date]
   }));
+
+  ratesArray.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  })
+
+  return ratesArray;
 }
+
