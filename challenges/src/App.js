@@ -8,7 +8,12 @@ function App() {
     <div>
       <h1>Foreign currency rates chart</h1>
       <Controls />
-      <Chart />
+      <Chart
+        baseCurrency="USD"
+        foreignCurrencies={['EUR', 'PLN']}
+        fromDate={new Date(2018, 1, 10)}
+        toDate={new Date()}
+      />
     </div>
   );
 }

@@ -3,7 +3,7 @@
  *
  * @param {string} url
  */
-export function cancelableFetch(url) {
+export default function cancelableFetch(url) {
   const abortController = new AbortController();
 
   return [
