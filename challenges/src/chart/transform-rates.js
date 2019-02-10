@@ -1,6 +1,6 @@
 /**
- * Transform the `rates` object from https://exchangeratesapi.io/ into a format that could be passed
- * to recharts:
+ * Transforms the `rates` object from https://exchangeratesapi.io/ into a format that could be
+ * passed to recharts:
  *
  * ```json
  * [

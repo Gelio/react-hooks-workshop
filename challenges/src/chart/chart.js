@@ -20,9 +20,20 @@ const lineStrokes = [
   '#6d888b',
   '#25f486',
   '#d1d91f',
-  '#8c0abb'
+  '#8c0abb',
+  '#0cbbde',
+  '#ce3507',
+  '#5a2b86',
+  '#e68c8d'
 ];
 
+/**
+ * TODO: convert `Chart` to a function component.
+ *
+ * While refactoring it, you may split it into 2 components:
+ * A `CurrencyDataProvider` that fetches the data from the API (maybe use a render-prop?)
+ * A `Chart` that displays the fetched data
+ */
 class Chart extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +42,8 @@ class Chart extends Component {
       loading: true,
       rates: []
     };
+
+    this.cancelRequest = null;
   }
 
   async componentDidMount() {
@@ -43,9 +56,14 @@ class Chart extends Component {
       foreignCurrencies
     });
 
-    const [request] = cancelableFetch(
+    /**
+     * TODO: when refactoring, use `cancelRequest` when necessary to avoid wasting bandwidth and
+     * prevent unexpected side-effects
+     */
+    const [request, cancelRequest] = cancelableFetch(
       `https://api.exchangeratesapi.io/history?${searchParams}`
     );
+    this.cancelRequest = cancelRequest;
 
     const response = await request;
     const body = await response.json();
@@ -54,6 +72,22 @@ class Chart extends Component {
       rates: body.rates,
       loading: false
     });
+    this.cancelRequest = null;
+  }
+
+  /**
+   * NOTE: Do you notice a bug with the `Chart` component?
+   * What would happen if `props` change?
+   * Would the request be sent again?
+   *
+   * SPOILER:
+   * No, `componentDidUpdate` is not implemented.
+   */
+
+  componentWillUnmount() {
+    if (this.cancelRequest) {
+      this.cancelRequest();
+    }
   }
 
   render() {
@@ -64,6 +98,10 @@ class Chart extends Component {
       return <div>Loading...</div>;
     }
 
+    /**
+     * Potentially heavy computation can be cached
+     * TODO: `useMemo`
+     */
     const transformedRates = transformRates(rates);
 
     return (

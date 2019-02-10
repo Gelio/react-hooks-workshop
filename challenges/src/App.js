@@ -3,6 +3,11 @@ import React from 'react';
 import Controls from './controls/controls';
 import Chart from './chart/chart';
 
+/**
+ * TODO: pass data from `Controls` to `Chart`
+ *
+ * Consider using `useCallback` and `useState`
+ */
 function App() {
   return (
     <div>

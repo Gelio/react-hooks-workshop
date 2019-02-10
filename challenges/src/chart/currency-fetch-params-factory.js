@@ -1,4 +1,6 @@
 /**
+ * Creates the querystring for https://exchangeratesapi.io/ based on provided parameters
+ *
  * @param {{ fromDate: Date, toDate: Date, baseCurrency: string, foreignCurrencies: string[] }} param0
  */
 export default function currencyFetchParamsFactory({
